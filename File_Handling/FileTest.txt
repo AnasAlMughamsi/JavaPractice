@@ -1,1 +1,2 @@
 Adding a content here for testing
+This text should be append to the file

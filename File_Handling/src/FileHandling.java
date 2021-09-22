@@ -9,11 +9,8 @@ public class FileHandling {
 
     public static void main(String[] args) throws IOException {
 
-        // This code should read, write and append file //
-
         // first create new file
         File file = new File("F:\\MyWork\\FullJavaStack\\Practice\\File_Handling\\FileTest.txt");
-        boolean createFile;
 
         if(file.createNewFile()) {
             System.out.println("File created");
@@ -26,19 +23,18 @@ public class FileHandling {
         writer.write("Adding a content here for testing");;
         writer.close();
 
+        // Create new string to append to the file above
+        FileWriter fileAppend = new FileWriter(file,true);
+        String appendString = "\nThis text should be append to the file";
+        fileAppend.write(appendString);
+        fileAppend.close();
+
+        // Read content inside file
         Scanner readFile = new Scanner(file);
         while (readFile.hasNextLine()) {
             String data = readFile.nextLine();
             System.out.println(data);
         }
         readFile.close();
-
-//        try {
-//
-//        FileWriter fileWriter = new FileWriter("testing.txt");
-//        } catch (IOException e) {
-//        System.out.println("An Error occurred");
-//        e.printStackTrace();
-//        }
     }
 }
